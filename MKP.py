@@ -121,13 +121,14 @@ def graficar(LIS, lista_mejors, lista_probabilidades, mejor_objetivo):
     plt.setp(grafico, "linestyle", "none", "marker",
              "s", "color", "g", "markersize", "1")
     plt.ylabel(u"Probabilidad")
-    plt.xlabel(u"Valor óptimo : " + str(mejor_objetivo))
+    plt.xlabel(u"Mejor valor encontrado : " + str(mejor_objetivo))
     return True
 
 
 def SimulatingAnniling(temperatura_actual, temperatura_minima, estado_equilibrio, enfriamiento, alpha, beta):
     # archivo = 'test'
-    archivo = 'OR5x100-0.25_1'
+    # archivo = 'OR5x100-0.25_1'
+    archivo = 'petterson'
     objetos, beneficios, matriz_pesos, capacidades = leeArchivo(archivo)
 
     # Inicializacion de variables
@@ -192,7 +193,7 @@ def SimulatingAnniling(temperatura_actual, temperatura_minima, estado_equilibrio
 # valor = funcionObjetivo(solucion_inicial, beneficios)
 # print(f"valor objetivo: {valor}")
 
-temperatura_actual = 100000000000
+temperatura_actual = 100000000
 temperatura_minima = 0.01
 estado_equilibrio = 30
 enfriamiento = "geometrico"
@@ -200,10 +201,14 @@ alpha = 0.99
 beta = 0.99
 
 
-SimulatingAnniling(temperatura_actual, temperatura_minima,
-                   estado_equilibrio, enfriamiento, alpha, beta)
+# SimulatingAnniling(temperatura_actual, temperatura_minima,
+#                    estado_equilibrio, enfriamiento, alpha, beta)
 
 
-# objetos, beneficios, matriz_pesos, capacidades = leeArchivo('test')
+objetos, beneficios, matriz_pesos, capacidades = leeArchivo('OR5x100-0.25_1')
 # print(matriz_pesos)
 # print(esFactible('011001', matriz_pesos, capacidades))
+
+print(beneficios)
+print(matriz_pesos)
+print(capacidades)
